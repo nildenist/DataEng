@@ -123,4 +123,72 @@ python my-pipeline.py \
 
 ## Cross-language transforms
 
+With a language agnostic representation of pipelines and the possibility to specify the environment of each operation, you are no longer limited to a single language in a given pipeline.
 
+Portability makes it possible for you to run multi-language pipelines that leverage the respective benefits of the individualized case.
+
+For example, you can now write a Python pipeline while using IO connectors that were only available in Java, or if you want to use a TensorFlow extended block of code for a machine learning model in your Java pipeline, you can now use a cross-language transform.
+
+```console
+from apache_beam.io.kafka import ReadFromKafka
+
+with beam.Pipeline(options=<Your Beam PipelineOptions object>) as p:
+      p
+      | ReadFromKafka(
+         consumer_config={'bootstrap.servers':'<Kafka bootstrap servers list>'},
+            topics=[<List of Kafka topics>])
+
+```
+
+This code represents a part of a Python streaming pipeline. The ```ReadFromKafka``` transform imported from the ```apache_beam.io.kafka``` module is a cross-language transform implemented using the Beam Java SDK.
+
+Under the hood, to make Java transforms available to a dataflow Python pipeline, The Apache Beam Python SDK starts up a ***local Java service*** on your computer to create and inject the appropriate Java pipeline fragments into your Python pipeline.
+
+Then the SDK downloads in stages the necessary Java dependencies needed to execute these transforms, and at run time, the dataflow workers will execute the Python and Java code simultaneously to run your pipeline.
+
+Let's have a refresh our knowledge for **Beam Portability**
+
+<h3> Question 1. What is the Beam Portability Framework? </h3>
+
+- [ ] A hermetic worker environment <br/>
+- [ ] A language-agnostic way to represent pipelines <br/>
+- [ ] A set of cross-language transforms <br/>
+- [ ] A set of protocols for executing pipelines <br/>
+      
+</div>
+
+<details>
+  <summary><b>Click here for the answer</b></summary>
+<br>
+<div id="q79" class="collapse">
+   
+- [ ] A hermetic worker environment <br/>
+- [x] A language-agnostic way to represent pipelines <br/>
+- [ ] A set of cross-language transforms <br/>
+- [x] A set of protocols for executing pipelines <br/>
+
+ </b>
+</div>
+</details>
+
+
+<h3> Question 2. Which of the following are benefits of Beam Portability (Select ALL that apply) ? </h3>
+
+- [ ] Cross-language transforms <br/>
+- [ ] Running pipelines authored in any SDK on any runner <br/>
+- [ ] Implement new Beam transforms using a language of choice and utilize these transforms from other languages <br/>
+      
+</div>
+
+<details>
+  <summary><b>Click here for the answer</b></summary>
+<br>
+<div id="q79" class="collapse">
+   
+- [x] Cross-language transforms <br/>
+- [x] Running pipelines authored in any SDK on any runner <br/>
+- [x] Implement new Beam transforms using a language of choice and utilize these transforms from other languages <br/>
+
+ </b>
+</div>
+</details>
