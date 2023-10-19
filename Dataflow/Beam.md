@@ -192,3 +192,32 @@ Let's have a refresh our knowledge for **Beam Portability**
  </b>
 </div>
 </details>
+
+
+# Separating Compute ans Storage with Dataflow
+
+
+## Dataflow
+
+Dataflow allows you to execute your VM pipelines on Google Cloud. There are several reasons why customers love Dataflow so much.
+
+First, it's because it is fully managed and autoconfigured.
+
+Second, Dataflow optimizes the graph execution by fusing operations efficiently and by not waiting for previous steps to finish before starting a new one unless there is a dependency involved.
+
+Third, autoscaling happens step by step in the middle of a pipeline job.
+
+## Dataflow Shuffle Service
+
+
+
+
+## Dataflow Streaming Engine
+
+
+
+## Flexible Resource Scheduling
+
+
+
+
