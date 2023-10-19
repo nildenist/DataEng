@@ -205,7 +205,12 @@ First, it's because it is fully managed and autoconfigured.
 
 Second, Dataflow optimizes the graph execution by fusing operations efficiently and by not waiting for previous steps to finish before starting a new one unless there is a dependency involved.
 
-Third, autoscaling happens step by step in the middle of a pipeline job.
+Third, autoscaling happens step by step in the middle of a pipeline job. As a job needs more resources, it receives them automatically.
+
+You don't have to manually scale resources to match job needs, and you don't pay for VM resources **that aren't being used.*** Dataflow will turn down the workers as the job demand decreases. 
+
+All of this happens while maintaining strong streaming semantics Aggregations like sums and counts are correct, even if the input source sends duplicate records.
+![chrome-capture-2023-9-19 (8)](https://github.com/nildenist/DataEng/assets/28653377/911a7ae2-4463-49bf-986a-15dd07ca5790)
 
 ## Dataflow Shuffle Service
 
