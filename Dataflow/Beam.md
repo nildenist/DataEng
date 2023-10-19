@@ -102,12 +102,25 @@ export IMAGE_URI=$REGISTRY_HOST/$PROJECT/$REPO:$TAG
 gcloud builds submit --tag $IMAGE_URI
 ```
 
-7) Finally, you can launch your Dataflow job by referencing the regular parameters and the location of the custom container image.
-
 ```console
 docker build -f Dockerfile -t $IMAGE_URI ./
 docker push $IMAGE_URI
 ```
 
+7) Finally, you can launch your Dataflow job by referencing the regular parameters and the location of the custom container image.
+
+```console
+python my-pipeline.py \
+   --input=INPUT_FILE \
+   --output=OUTPUT_FILE \
+   --project=PROJECT_ID \
+   --region=REGION \
+   --temp_location=TEMP_LOCATION \
+   --runner=DataflowRunner \
+   --worker_harness_container_image=$IMAGE_URI
+```
+
 
 ## Cross-language transforms
+
+
