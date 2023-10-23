@@ -214,8 +214,17 @@ All of this happens while maintaining strong streaming semantics Aggregations li
 
 ## Dataflow Shuffle Service
 
+A shuffle is a Dataflow-based operation behind transforms such as GroupByKey, CoGroupByKey, and Combine.
+![Screenshot from 2023-10-23 16-42-46](https://github.com/nildenist/DataEng/assets/28653377/f3098cbd-0c29-4b39-818d-3423db5ff74c)
 
+The Dataflow Shuffle operation partitions and groups data by key in a scalable, efficient, fault-tolerant manner.
 
+Currently, Dataflow uses a shuffle implementation that runs entirely on worker virtual machines and consumes worker CPU, memory, and persistent disk storage.
+
+The service-based Dataflow Shuffle feature available for batch pipelines only moves the shuffle operations out of the worker VMs and into the Dataflow service backend.
+
+With the Dataflow Shuffle service, you will have faster execution time of batch pipelines for the majority of the job types.
+The worker nodes will benefit from a reduction in consumed CPU, memory, and persistent disk storage resources, and your pipelines will have better autoscaling because the worker nodes VMs no longer hold any shuffle data, and can therefore be scaled down earlier.
 
 ## Dataflow Streaming Engine
 
