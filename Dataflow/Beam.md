@@ -223,8 +223,15 @@ Currently, Dataflow uses a shuffle implementation that runs entirely on worker v
 
 The service-based Dataflow Shuffle feature available for batch pipelines only moves the shuffle operations out of the worker VMs and into the Dataflow service backend.
 
-With the Dataflow Shuffle service, you will have faster execution time of batch pipelines for the majority of the job types.
-The worker nodes will benefit from a reduction in consumed CPU, memory, and persistent disk storage resources, and your pipelines will have better autoscaling because the worker nodes VMs no longer hold any shuffle data, and can therefore be scaled down earlier.
+![shuffle_batch](https://github.com/nildenist/DataEng/assets/28653377/dc87de23-628b-40ab-972b-73050db8273c)
+
+With the Dataflow Shuffle service, you will have **faster execution time** of batch pipelines for the majority of the job types.
+
+The worker nodes will benefit from a **reduction** in consumed **CPU**, **memory**, and persistent **disk storage** resources, and your pipelines will have better **autoscaling** because the worker nodes VMs no longer hold any shuffle data, and can therefore be scaled down earlier.
+
+Also, because of the service, you will get better **fault tolerance**.
+
+An unhealthy VM holding Dataflow Shuffle data will not cause the entire job to fail, which would happen without the feature.
 
 ## Dataflow Streaming Engine
 
