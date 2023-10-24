@@ -235,9 +235,41 @@ An unhealthy VM holding Dataflow Shuffle data will not cause the entire job to f
 
 ## Dataflow Streaming Engine
 
+Just like shuffle component in batch, the streaming engine offloads the window state storage from the persistent disks attached to worker VMs to a back-end service.
 
+It also implements an efficient shuffle for streaming cases. No code changes are required.
+
+Worker nodes continue running your user code and implements data transforms and transparently communicate with a streaming engine to source state.
+
+![dataflow_streaming_engine](https://github.com/nildenist/DataEng/assets/28653377/2cbbfcb0-cb19-402c-ac73-0744f4433ca9)
+
+With the dataflow streaming engine, you will have a reduction in consumed **CPU**, **memory**, and persistent disk **storage** resources on the worker VMs.
+
+Streaming engine works best with smaller worker machine types like n1-standard-2, and does not require persistent disks beyond a smaller worker boot disk. This leads to a lower resource and quota consumption.
+
+With streaming engine, your pipeline will be more **responsive** to variations to incoming data volume.
+
+You will have improved **supportability**, since you don't need to redeploy your pipelines to applied service updates.
 
 ## Flexible Resource Scheduling
+
+Flexible Resource Scheduling, or in short, ***FlexRS***.
+
+![dataflow_FlexRS](https://github.com/nildenist/DataEng/assets/28653377/2f6fec83-e135-4179-aa02-4afb1b47ddd6)
+
+FlexRS helps you **reduce** the cost of your batch processing pipelines because you can use **advanced scheduling** techniques in the **Dataflow Shuffle Service** and leverage a mix of **preemptible** and **normal virtual machines**.
+
+When you submit a FlexRS job, the Dataflow service places the job into a queue and submits it for **execution** within **6 hours** from job creation. This makes FlexRS suitable for workloads that are not **time-critical**, such as ***daily*** or ***weekly*** jobs that can be completed within a certain time window.
+
+As soon as you submit your FlexRS job, Dataflow records a job ID and performs an **early validation** run to verify execution parameters, configurations, quota and permissions.
+
+In case of failure, the **error** is reported immediately, and you don't have to wait for a delayed execution.
+
+
+
+
+
+
 
 
 
