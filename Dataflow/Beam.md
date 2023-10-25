@@ -266,10 +266,72 @@ As soon as you submit your FlexRS job, Dataflow records a job ID and performs an
 In case of failure, the **error** is reported immediately, and you don't have to wait for a delayed execution.
 
 
+Let's have a refresh our knowledge for **Separating Compute and Storage with Dataflow**
+
+<h3> Question 1. The Dataflow Shuffle service is available only for batch jobs. </h3>
+
+- [ ] True <br/>
+- [ ] False <br/>
+      
+</div>
+
+<details>
+  <summary><b>Click here for the answer</b></summary>
+<br>
+<div id="q79" class="collapse">
+   
+- [x] True <br/>
+- [ ] False <br/>
+
+ </b>
+</div>
+</details>
 
 
+<h3> Question 2. What are the benefits of Dataflow Streaming Engine? Select ALL that apply: </h3>
+
+- [ ] Reduced consumption of worker CPU, memory, and storage <br/>
+- [ ] Lower resource and quota consumption <br/>
+- [ ] More responsive autoscaling for incoming data variations <br/>
+      
+</div>
+
+<details>
+  <summary><b>Click here for the answer</b></summary>
+<br>
+<div id="q79" class="collapse">
+   
+- [x] Reduced consumption of worker CPU, memory, and storage <br/>
+- [x] Lower resource and quota consumption <br/>
+- [x] More responsive autoscaling for incoming data variations <br/>
+
+ </b>
+</div>
+</details>
 
 
+<h3> Question 3. Which of the following are TRUE about Flexible Resource Scheduling (select ALL that apply): </h3>
+
+- [ ] When you submit a FlexRS job, the Dataflow service places the job into a queue and submits it for execution within 6 hours from job creation. <br/>
+- [ ] FlexRS helps to reduce batch processing costs by using advanced scheduling techniques <br/>
+- [ ] FlexRS is most suitable for workloads that are time-critical <br/>
+- [ ] FlexRS leverages a mix of preemptible and normal VMs <br/>
+
+</div>
+
+<details>
+  <summary><b>Click here for the answer</b></summary>
+<br>
+<div id="q79" class="collapse">
+   
+- [x] When you submit a FlexRS job, the Dataflow service places the job into a queue and submits it for execution within 6 hours from job creation. <br/>
+- [x] FlexRS helps to reduce batch processing costs by using advanced scheduling techniques <br/>
+- [ ] FlexRS is most suitable for workloads that are time-critical <br/>
+- [x] FlexRS leverages a mix of preemptible and normal VMs <br/>
+
+ </b>
+</div>
+</details>
 
 
 
